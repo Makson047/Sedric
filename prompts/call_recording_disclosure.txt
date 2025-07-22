@@ -1,0 +1,14 @@
+Analyze the following call transcription.
+
+Task:
+Identify if the representative informed the prospect that the call is being recorded.
+
+Instructions:
+- Respond only in this JSON format:
+{{
+  "disclosure_made": true/false,
+  "violation": true/false,
+  "reason": "Short explanation"
+}}
+
+Transcription: ${transcription}

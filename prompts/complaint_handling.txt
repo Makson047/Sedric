@@ -1,0 +1,19 @@
+Analyze the following call transcription for compliance.
+
+Task:
+1. Identify if the prospect expresses a complaint.
+2. Determine if the representative failed to flag the complaint.
+- The variable ${complaint_flag} shows if a complaint was flagged by the representative: it can be "True", "False", or "unknown".
+
+Instructions:
+- Respond only in this JSON format:
+{{
+  "complaint_detected": true/false,
+  "flagged_by_representative": true/false/null,
+  "violation": true/false,
+  "reason": "Short explanation"
+}}
+
+Input:
+Transcription: ${transcription}
+Complaint flag: ${complaint_flag}

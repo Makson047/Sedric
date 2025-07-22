@@ -1,0 +1,72 @@
+# Data files
+data/
+output/
+data_files/
+*.csv
+*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+.eggs/
+*.egg
+
+# Environments
+.env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# System
+Thumbs.db
+Desktop.ini
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Anthropic/OpenAI secrets
+anthropic_key.txt
+openai_key.txt
+
+# Pipenv
+Pipfile.lock
+
+# Coverage
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# Pytest
+.pytest_cache/

@@ -1,0 +1,17 @@
+Analyze the following marketing content for compliance.
+
+Task:
+- Identify if the content uses aggressive, pressuring, or sensational language that promotes trading as a guaranteed or easy path to wealth.
+- Specifically look for phrases such as "get rich quick", "earn fast", "make a lot of money", or similar claims, especially if there is no clear risk warning or disclaimer.
+- To comply with FCA and MiFID II, content must be factual, balanced, and include appropriate disclaimers.
+
+Instructions:
+Respond only in this JSON format:
+{{
+  "aggressive_language_detected": true/false,
+  "violation": true/false,
+  "reason": "Short explanation"
+}}
+
+Input:
+Content: ${transcription}
