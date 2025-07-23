@@ -6,22 +6,7 @@
 
 ## 📦 Структура проекту
 
-project_root/
-├── main.py
-├── compliance_checks.py
-├── api_utils.py
-├── pdf_utils.py
-├── csv_utils.py
-├── file_utils.py
-├── prompt_utils.py
-├── prompts/
-│ ├── complaint_handling.txt
-│ ├── call_recording_disclosure.txt
-│ └── aggressive_marketing.txt
-├── data_files/
-│ └── ... (вхідні дані)
-├── requirements.txt
-└── README.md
+<pre> ```plaintext project_root/ ├── main.py ├── compliance_checks.py ├── api_utils.py ├── pdf_utils.py ├── csv_utils.py ├── file_utils.py ├── prompt_utils.py ├── prompts/ │ ├── complaint_handling.txt │ ├── call_recording_disclosure.txt │ └── aggressive_marketing.txt ├── data_files/ │ └── ... (вхідні дані) ├── requirements.txt └── README.md ``` </pre>
 
 
 ## ⚙️ Вимоги
