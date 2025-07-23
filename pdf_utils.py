@@ -2,7 +2,7 @@ import PyPDF2
 
 def extract_text_from_pdf(pdf_path):
     """
-    Витягує весь текст із PDF-файлу.
+    Extracts all text from a PDF file.
     """
     text = ""
     with open(pdf_path, "rb") as f:

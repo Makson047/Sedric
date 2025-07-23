@@ -1,10 +1,10 @@
 # Compliance Detection Pipeline
 
-Цей проєкт — гнучкий Python-пайплайн для виявлення порушень регуляторних вимог у фінтех- та трейдингових компаніях з використанням LLM (Anthropic Claude). Підтримує різні типи перевірок: скарги клієнтів, попередження про запис розмови, агресивний маркетинг.
+This project is a flexible Python pipeline for detecting regulatory compliance violations in fintech and trading companies using LLM (Anthropic Claude). It supports various types of checks: customer complaints, call recording disclosure, aggressive marketing.
 
 
 
-## 📦 Структура проекту
+## 📦 Project Structure
 
 ```plaintext
 project_root/
@@ -20,34 +20,34 @@ project_root/
 │   ├── call_recording_disclosure.txt
 │   └── aggressive_marketing.txt
 ├── data_files/
-│   └── ... (вхідні дані)
+│   └── ... (input data)
 ├── requirements.txt
 └── README.md
 ```
 
 
-## ⚙️ Вимоги
+## ⚙️ Requirements
 
 - Python 3.8+
-- [Anthropic API ключ](https://console.anthropic.com/)
-- Бібліотеки:
+- [Anthropic API key](https://console.anthropic.com/)
+- Libraries:
     - anthropic
     - python-dotenv
     - PyPDF2
-    - (та стандартні бібліотеки Python)
+    - (and standard Python libraries)
 
-Встановити всі залежності:
+Install all dependencies:
 pip install -r requirements.txt 
 
 
-## 🚀 Як запустити
+## 🚀 How to Run
 
-1. Додайте API-ключ у .env файл:
+1. Add your API key to the .env file:
 ANTHROPIC_API_KEY=sk-ant-...
 
-2. Підготуйте папку з файлами для перевірки (див. приклади нижче).
+2. Prepare a folder with the files you want to check (see examples below).
 
-3. Запуск скрипта (CLI):
+3. Run the script (CLI):
 Complaint Handling and Escalation
 python main.py --case complaint --input_folder data_files\Transcriptions\Complaints
 
@@ -58,37 +58,37 @@ Aggressive or Pressuring Selling Language (Marketing)
 python main.py --case marketing --input_folder data_files\Marketing_Assets
 
 
-## 📄 Опис кейсів
-- complaint — Виявлення скарг клієнтів, які не були відмічені агентом.
-- recording — Виявлення відсутності попередження про запис розмови у дзвінках.
-- marketing — Виявлення агресивного або оманливого маркетингу у PDF-файлах вебсторінок/реклами.
+## 📄 Case Descriptions
+- complaint — Detection of customer complaints that were not flagged by the agent.
+- recording — Detection of missing call recording disclosures in calls.
+- marketing — Detection of aggressive or misleading marketing in PDF files of web pages/ads.
 
 
-## 📝 Приклади структури вхідних даних
-- Для complaint/recording: .txt файли з транскрипцією дзвінків.
-- Для marketing: .pdf файли з маркетинговими матеріалами.
+## 📝 Example Input Data Structure
+- For complaint/recording: .txt files with call transcriptions.
+- For marketing: .pdf files with marketing materials.
 
 
-## 📤 Результати
-Зберігаються у відповідних CSV-файлах:
+## 📤 Results
+Saved in the corresponding CSV files:
 - complaint.csv
 - recording.csv
 - marketing.csv
-Кожен рядок містить результат для одного файлу.
+Each row contains the result for one file.
 
 
-## 🧩 Розширюваність
-Для додавання нових типів перевірок:
-- Додайте новий промпт у prompts/.
-- Додайте новий чекер у compliance_checks.py.
-- Оновіть логіку у main.py, якщо треба.
+## 🧩 Extensibility
+To add new types of checks:
+- Add a new prompt in prompts/.
+- Add a new checker in compliance_checks.py.
+- Update the logic in main.py if needed.
 
 
-## ❗ Поради
-- Переконайтесь, що всі змінні оточення (особливо ANTHROPIC_API_KEY) задані.
-- Для маркетингових PDF бажано перевіряти якість витягнутого тексту.
-- Для тесту на великій кількості файлів — дотримуйтесь лімітів Anthropic API.
+## ❗ Tips
+- Make sure all environment variables (especially ANTHROPIC_API_KEY) are set.
+- For marketing PDFs, it's recommended to check the quality of the extracted text.
+- When testing with a large number of files, follow the Anthropic API limits.
 
 
-##  📞 Підтримка
-Для питань щодо розробки, звертайтесь через Issues або напряму до автора проєкту.
+##  📞 Support
+For development questions, open an Issue or contact the project author directly.

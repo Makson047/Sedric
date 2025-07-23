@@ -2,12 +2,12 @@ import os
 from dotenv import load_dotenv
 import anthropic
 
-# Завантажуємо змінні з .env файлу
+# Load environment variables from .env file
 load_dotenv()
 
 def analyze_with_llm(prompt):
     """
-    Викликає Anthropic Claude Sonnet 4 API для отримання відповіді на промпт.
+    Calls the Anthropic Claude Sonnet 4 API to get a response for the given prompt.
     """
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:

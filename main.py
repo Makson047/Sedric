@@ -8,7 +8,7 @@ from file_utils import load_transcription
 
 
 """
-Приклади запуску:
+Examples of running:
     python main.py --case complaint --input_folder data_files\Transcriptions\Complaints
     python main.py --case recording --input_folder "data_files\Transcriptions\Mock Calling Disclosure"
     python main.py --case marketing --input_folder data_files\Marketing_Assets
@@ -18,9 +18,9 @@ from file_utils import load_transcription
 def parse_args():
     parser = argparse.ArgumentParser(description="Compliance batch checker")
     parser.add_argument("--case", required=True, choices=["complaint", "recording", "marketing"],
-                        help="Який кейс перевіряємо: complaint | recording | marketing")
+                        help="Which case to check: complaint | recording | marketing")
     parser.add_argument("--input_folder", required=True,
-                        help="Папка з файлами для перевірки")
+                        help="Folder with files to check")
     return parser.parse_args()
 
 
@@ -46,11 +46,11 @@ if __name__ == "__main__":
         files = glob.glob(os.path.join(args.input_folder, "*.txt"))
 
     if not files:
-        print("Не знайдено жодного файлу для обробки!")
+        print("No files found for processing!")
     else:
         for file_path in files:
             if args.case == "marketing":
-                # Для PDF-файлів маркетингу
+                # For marketing PDF files
                 content = extract_text_from_pdf(file_path)
                 result = checker(content)
             elif args.case == "complaint":
@@ -61,8 +61,8 @@ if __name__ == "__main__":
                 result = checker(transcription)
             result["file"] = file_path
             save_result_to_csv(result, output_csv)
-            print(f"Оброблено: {file_path}")
+            print(f"Processed: {file_path}")
 
-        print(f"Готово! Всі результати збережено у {output_csv}")
+        print(f"Done! All results saved to {output_csv}")
 
 

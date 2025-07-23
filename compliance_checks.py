@@ -7,14 +7,14 @@ import json
 
 def extract_json_from_response(response_text):
     """
-    Витягує JSON-блок із LLM-відповіді (видаляє ```json ... ``` якщо потрібно).
+    Extracts the JSON block from the LLM response (removes ```json ... ``` if necessary).
     """
-    # Шукаємо блок між ```json і ```
+    # Search for the block between ```json and ```
     json_match = re.search(r'```json\s*({.*?})\s*```', response_text, re.DOTALL)
     if json_match:
         json_str = json_match.group(1)
     else:
-        # Якщо немає markdown, шукаємо просто { ... }
+        # If there is no markdown, search for just { ... }
         json_match = re.search(r'({.*})', response_text, re.DOTALL)
         if json_match:
             json_str = json_match.group(1)
@@ -29,8 +29,8 @@ PROMPT_TEMPLATE_COMPLAINT = load_prompt(PROMPT_PATH_COMPLAINT)
 
 def check_complaint_handling(text, complaint_flag=None):
     """
-    Перевіряє наявність скарги у транскрипції та чи була вона відмічена представником.
-    Використовує LLM-промпт з complaint_flag.
+        Checks for the presence of a complaint in the transcription and whether it was flagged by the representative.
+        Uses an LLM prompt with complaint_flag.
     """
     flag_value = complaint_flag if complaint_flag is not None else "unknown"
     prompt = format_prompt(
@@ -65,7 +65,7 @@ PROMPT_TEMPLATE_RECORDING = load_prompt(PROMPT_PATH_RECORDING)
 
 def check_call_recording_disclosure(text):
     """
-    Перевірка, чи попередив агент про запис розмови.
+    Checks if the agent warned about recording the call.
     """
     prompt = format_prompt(
         PROMPT_TEMPLATE_RECORDING,
@@ -95,7 +95,7 @@ PROMPT_TEMPLATE_MARKETING = load_prompt(PROMPT_PATH_MARKETING)
 
 def check_aggressive_marketing(text):
     """
-    Виявлення агресивних/оманливих формулювань у маркетингових матеріалах.
+    Detection of aggressive/deceptive statements in marketing materials.
     """
     prompt = format_prompt(
         PROMPT_TEMPLATE_MARKETING,
